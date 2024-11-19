@@ -524,9 +524,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 5
   ratioDisparo: 0.5
-  disparoPrefab: {fileID: 2262133037295959031, guid: 4ac63464825eef441aef2561eb4750e7, type: 3}
-  spawnPoint1: {fileID: 1636357464}
-  spawnPoint2: {fileID: 61571133}
+  disparoPrefab: {fileID: 6253108495312765782, guid: 4ac63464825eef441aef2561eb4750e7, type: 3}
+  spawnPoints:
+  - {fileID: 1636357465}
+  - {fileID: 61571134}
+  numeroDisparos: 0
 --- !u!61 &478323013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -926,7 +928,7 @@ GameObject:
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &953591763
 Transform:
   m_ObjectHideFlags: 0
