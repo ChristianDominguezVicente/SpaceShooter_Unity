@@ -96,10 +96,23 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D elOtro)
     {
-        if (elOtro.gameObject.CompareTag("DisparoEnemigo") || elOtro.gameObject.CompareTag("Enemigo"))
+        if (elOtro.gameObject.CompareTag("DisparoEnemigo"))
         {
+            Disparo disparoEnemigo = elOtro.GetComponent<Disparo>();
+            disparoEnemigo.MyPool.Release(disparoEnemigo);
             vidas -= 20;
-            Destroy(elOtro.gameObject);
+            //Destroy(elOtro.gameObject);
+            if (vidas <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+        else if (elOtro.gameObject.CompareTag("Enemigo"))
+        {
+            Enemigo enemigo = elOtro.GetComponent<Enemigo>();
+            enemigo.PoolEnemigos.Release(enemigo);
+            vidas -= 20;
+            //Destroy(elOtro.gameObject);
             if (vidas <= 0)
             {
                 Destroy(this.gameObject);

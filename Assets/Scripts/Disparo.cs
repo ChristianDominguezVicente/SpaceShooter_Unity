@@ -10,7 +10,6 @@ public class Disparo : MonoBehaviour
     [SerializeField] private Vector3 direccion;
 
     private ObjectPool<Disparo> mypool;
-
     public ObjectPool<Disparo> MyPool { get => mypool; set => mypool = value; }
 
     private float timer;
@@ -25,11 +24,21 @@ public class Disparo : MonoBehaviour
     {
         transform.Translate(direccion * velocidad * Time.deltaTime);
 
+        /*
         timer += Time.deltaTime;
 
         if (timer >= 4)
         {
             timer = 0;
+            mypool.Release(this);
+        }
+        */
+    }
+
+    private void OnTriggerEnter2D(Collider2D elOtro)
+    {
+        if (elOtro.gameObject.CompareTag("Bound"))
+        {
             mypool.Release(this);
         }
     }

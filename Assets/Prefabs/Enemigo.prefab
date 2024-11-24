@@ -164,8 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 5
-  disparoPrefab: {fileID: 2687129226528629006, guid: 4ee2e6c0458e1674387a0ad2d63fbd9f, type: 3}
-  spawnPoint: {fileID: 3919295806026971105}
+  disparoPrefab: {fileID: -1354075655077770813, guid: 4ee2e6c0458e1674387a0ad2d63fbd9f, type: 3}
+  spawnPoint: {fileID: 2805738940716862660}
 --- !u!50 &5670337870350230530
 Rigidbody2D:
   serializedVersion: 4
@@ -222,7 +222,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

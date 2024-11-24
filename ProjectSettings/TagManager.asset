@@ -7,6 +7,7 @@ TagManager:
   - Enemigo
   - DisparoPlayer
   - DisparoEnemigo
+  - Bound
   layers:
   - Default
   - TransparentFX
