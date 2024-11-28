@@ -39,7 +39,7 @@ public class MenuPausa : MonoBehaviour
     public void Salir()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MenuInicio");
+        SceneManager.LoadScene("Inicio");
         PlayerPrefs.SetInt("SalirJuego", 1);
     }
 }

@@ -1,18 +1,30 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float velocidad;
+    //[SerializeField] private float velocidad;
     [SerializeField] private float ratioDisparo;
     [SerializeField] private Disparo disparoPrefab;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private int numeroDisparos;
+    [SerializeField] private Image imageVida;
+    [SerializeField] private TMP_Text Puntuacion;
     private float temporizador = 0.5f;
-    private float vidas = 100;
+    //private float vidas = 100;
+
+    protected PlayerModel playerModel;
+    private AudioSource audioS;
+
+    public PlayerModel getPlayer()
+    {
+        return playerModel;
+    }
 
     private ObjectPool<Disparo> pool;
     private void Awake()
@@ -39,7 +51,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioS = GetComponent<AudioSource>();
+        playerModel = gameObject.AddComponent<PlayerModel>();
     }
 
     // Update is called once per frame
@@ -54,7 +67,7 @@ public class Player : MonoBehaviour
     {
         float inputH = Input.GetAxisRaw("Horizontal");
         float inputV = Input.GetAxisRaw("Vertical");
-        transform.Translate(new Vector2(inputH, inputV).normalized * velocidad * Time.deltaTime);
+        transform.Translate(new Vector2(inputH, inputV).normalized * playerModel.pVelocidad * Time.deltaTime);
     }
 
     void DelimitarMovimiento()
@@ -90,7 +103,18 @@ public class Player : MonoBehaviour
                 disparocopia.transform.position = spawnPoints[i].transform.position;
                 
             }
+
+            if (audioS.loop == false)
+            {
+                audioS.loop = true;
+                audioS.Play();
+            }
+
             temporizador = 0;
+        }
+        else
+        {
+            audioS.loop = false;
         }
     }
 
@@ -100,10 +124,15 @@ public class Player : MonoBehaviour
         {
             Disparo disparoEnemigo = elOtro.GetComponent<Disparo>();
             disparoEnemigo.MyPool.Release(disparoEnemigo);
-            vidas -= 20;
+            playerModel.pVida -= 20;
+            imageVida.rectTransform.sizeDelta = new Vector2(playerModel.pVida, imageVida.rectTransform.sizeDelta.y);
             //Destroy(elOtro.gameObject);
-            if (vidas <= 0)
+            if (playerModel.pVida <= 0)
             {
+                if (playerModel.pPuntuacion > PlayerPrefs.GetInt("Puntuacion"))
+                    Puntuacion.text = "Score: " + playerModel.pPuntuacion;
+                else
+                    Puntuacion.text = "Score: " + PlayerPrefs.GetInt("Puntuacion");
                 Destroy(this.gameObject);
             }
         }
@@ -111,10 +140,15 @@ public class Player : MonoBehaviour
         {
             Enemigo enemigo = elOtro.GetComponent<Enemigo>();
             enemigo.PoolEnemigos.Release(enemigo);
-            vidas -= 20;
+            playerModel.pVida -= 20;
+            imageVida.rectTransform.sizeDelta = new Vector2(playerModel.pVida, imageVida.rectTransform.sizeDelta.y);
             //Destroy(elOtro.gameObject);
-            if (vidas <= 0)
+            if (playerModel.pVida <= 0)
             {
+                if (playerModel.pPuntuacion > PlayerPrefs.GetInt("Puntuacion"))
+                    Puntuacion.text = "Score: " + playerModel.pPuntuacion;
+                else
+                    Puntuacion.text = "Score: " + PlayerPrefs.GetInt("Puntuacion");
                 Destroy(this.gameObject);
             }
         }

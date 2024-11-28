@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -123,6 +124,12 @@ public class Enemigo : MonoBehaviour
                 disparoPlayer.MyPool.Release(disparoPlayer);
             }
             ReleaseEnemigo();
+
+            Player player;
+            player = GameObject.Find("Player").GetComponent<Player>();
+            player.getPlayer().pPuntuacion += 5;
+            TMP_Text textPuntuacion = (TMP_Text)GameObject.Find("Puntos").GetComponent<TMP_Text>();
+            textPuntuacion.text = "Score: " + player.getPlayer().pPuntuacion;
         }
         else if (elOtro.gameObject.CompareTag("Bound"))
         {
