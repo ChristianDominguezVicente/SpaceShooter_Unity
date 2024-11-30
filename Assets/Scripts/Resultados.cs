@@ -33,7 +33,10 @@ public class Resultados : MonoBehaviour
         Puntuacion.text = "Score: " + player.getPlayer().pPuntuacion;
         Fin.SetActive(true);
         Time.timeScale = 0f;
-        PlayerPrefs.SetInt("Puntuacion", (int)player.getPlayer().pPuntuacion);
+        if (player.getPlayer().pPuntuacion > PlayerPrefs.GetInt("Puntuacion", 0))
+        {
+            PlayerPrefs.SetInt("Puntuacion", (int)player.getPlayer().pPuntuacion);
+        }
     }
 
     public void VolverAJugar()

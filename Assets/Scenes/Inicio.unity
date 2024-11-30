@@ -373,7 +373,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.54901963, g: 0.5019608, b: 0.82745105, a: 1}
     m_HighlightedColor: {r: 0.4779684, g: 0.4008989, b: 0.9339623, a: 1}
     m_PressedColor: {r: 0.32800078, g: 0.22877358, b: 0.9150943, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.32941177, g: 0.22745098, b: 0.9137255, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -392,19 +392,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 83790410}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 374909028}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: Jugar1
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &83790410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1362,7 +1350,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1189697383}
+      - m_Target: {fileID: 109543246}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -1617,7 +1605,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.54901963, g: 0.5019608, b: 0.82745105, a: 1}
     m_HighlightedColor: {r: 0.4779684, g: 0.4008989, b: 0.9339623, a: 1}
     m_PressedColor: {r: 0.32800078, g: 0.22877358, b: 0.9150943, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.32941177, g: 0.22745098, b: 0.9137255, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1636,19 +1624,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 316584483}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 374909028}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: Jugar1
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &316584483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1791,6 +1767,7 @@ GameObject:
   - component: {fileID: 374909023}
   - component: {fileID: 374909028}
   - component: {fileID: 374909027}
+  - component: {fileID: 374909029}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1921,6 +1898,21 @@ MonoBehaviour:
   menuOpciones: {fileID: 1110869521}
   menuNiveles: {fileID: 109543246}
   nivel1: {fileID: 866672837}
+--- !u!114 &374909029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374909022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be233ed43303c8c40a563ef2254bf966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normal: {fileID: 316584482}
+  ondas: {fileID: 83790409}
+  cuadra: {fileID: 1625379702}
 --- !u!1 &556214861
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,7 +3191,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 947684900}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 109543246}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1295619459}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &907345051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5812,7 +5828,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.54901963, g: 0.5019608, b: 0.82745105, a: 1}
     m_HighlightedColor: {r: 0.4779684, g: 0.4008989, b: 0.9339623, a: 1}
     m_PressedColor: {r: 0.32800078, g: 0.22877358, b: 0.9150943, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.32941177, g: 0.22745098, b: 0.9137255, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5831,19 +5847,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1625379703}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 374909028}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: Jugar1
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1625379703
 MonoBehaviour:
   m_ObjectHideFlags: 0

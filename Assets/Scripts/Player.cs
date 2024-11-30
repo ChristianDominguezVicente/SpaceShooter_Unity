@@ -95,13 +95,13 @@ public class Player : MonoBehaviour
                 yield return new WaitforSeconds(0.2f);
             }
             */
-            for (int i = 0; i < 2; i++)
+            int tipoDisparo = PlayerPrefs.GetInt("Disparo", 1);
+            switch (tipoDisparo)
             {
-                // Estoy pidiendo a la piscina que me de un nuevo disparo.
-                Disparo disparocopia = pool.Get();
-                disparocopia.gameObject.SetActive(true);
-                disparocopia.transform.position = spawnPoints[i].transform.position;
-                
+                case 1: DisparoDoble(); break;
+                case 2: DisparoOndas(); break;
+                case 3: DisparoCuadra(); break;
+                default: DisparoDoble(); break;
             }
 
             if (audioS.loop == false)
@@ -117,6 +117,64 @@ public class Player : MonoBehaviour
             audioS.loop = false;
         }
     }
+
+    private void DisparoDoble()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            // Estoy pidiendo a la piscina que me de un nuevo disparo.
+            Disparo disparocopia = pool.Get();
+            disparocopia.gameObject.SetActive(true);
+            disparocopia.transform.position = spawnPoints[i].transform.position;
+
+        }
+    }
+
+    private void DisparoOndas()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            // Estoy pidiendo a la piscina que me de un nuevo disparo.
+            Disparo disparocopia = pool.Get();
+            disparocopia.gameObject.SetActive(true);
+            disparocopia.transform.position = spawnPoints[i].transform.position;
+            disparocopia.AmplitudOndas = 0.05f;
+            disparocopia.FrecuenciaOndas = 2f;
+            if (i == 0)
+                disparocopia.InversionOndas = true;
+            else
+                disparocopia.InversionOndas = false;
+        }
+    }
+
+    private void DisparoCuadra()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Disparo disparocopia = pool.Get();
+            switch (i)
+            {
+                case 0:
+                case 1:
+                    // Estoy pidiendo a la piscina que me de un nuevo disparo.
+                    disparocopia.gameObject.SetActive(true);
+                    disparocopia.transform.position = spawnPoints[i].transform.position;
+                    disparocopia.transform.eulerAngles = new Vector3(0, 0, 0);
+                    break;
+                case 2:
+                    disparocopia.gameObject.SetActive(true);
+                    disparocopia.transform.position = spawnPoints[0].transform.position;
+                    disparocopia.transform.eulerAngles = new Vector3(0, 0, 45);
+                    break;
+                case 3:
+                    disparocopia.gameObject.SetActive(true);
+                    disparocopia.transform.position = spawnPoints[1].transform.position;
+                    disparocopia.transform.eulerAngles = new Vector3(0, 0, -45);
+                    break;
+            }
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D elOtro)
     {
