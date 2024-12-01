@@ -30,7 +30,7 @@ public class Resultados : MonoBehaviour
     {
         if (Fin.activeSelf) return;
 
-        Puntuacion.text = "Score: " + player.getPlayer().pPuntuacion;
+        Puntuacion.text = "Puntos: " + player.getPlayer().pPuntuacion;
         Fin.SetActive(true);
         Time.timeScale = 0f;
         if (player.getPlayer().pPuntuacion > PlayerPrefs.GetInt("Puntuacion", 0))

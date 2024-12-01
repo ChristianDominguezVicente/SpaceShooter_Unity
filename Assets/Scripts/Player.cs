@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    //[SerializeField] private float velocidad;
     [SerializeField] private float ratioDisparo;
     [SerializeField] private Disparo disparoPrefab;
     [SerializeField] private Transform[] spawnPoints;
@@ -16,7 +15,6 @@ public class Player : MonoBehaviour
     [SerializeField] private Image imageVida;
     [SerializeField] private TMP_Text Puntuacion;
     private float temporizador = 0.5f;
-    //private float vidas = 100;
 
     protected PlayerModel playerModel;
     private AudioSource audioS;
@@ -82,19 +80,6 @@ public class Player : MonoBehaviour
         temporizador += 1 * Time.deltaTime;
         if (Input.GetKey(KeyCode.Space) && temporizador > ratioDisparo)
         {
-            /* // poner en una corrutina para que haya efectos, este es espiral
-            float gradosPorDisparo = 360 / numeroDisparos;
-            
-            for (float i = 0; i < 360; i+=gradosPorDisparo)
-            {
-                // Estoy pidiendo a la piscina que me de un nuevo disparo.
-                Disparo disparocopia = pool.Get();
-                disparocopia.gameObject.SetActive(true);
-                disparocopia.transform.position = spawnPoints[i].transform.position;
-                disparocopia.transform.eulerAngles =new Vector3(0f, 0f, i);
-                yield return new WaitforSeconds(0.2f);
-            }
-            */
             int tipoDisparo = PlayerPrefs.GetInt("Disparo", 1);
             switch (tipoDisparo)
             {
@@ -184,13 +169,12 @@ public class Player : MonoBehaviour
             disparoEnemigo.MyPool.Release(disparoEnemigo);
             playerModel.pVida -= 20;
             imageVida.rectTransform.sizeDelta = new Vector2(playerModel.pVida, imageVida.rectTransform.sizeDelta.y);
-            //Destroy(elOtro.gameObject);
             if (playerModel.pVida <= 0)
             {
                 if (playerModel.pPuntuacion > PlayerPrefs.GetInt("Puntuacion"))
-                    Puntuacion.text = "Score: " + playerModel.pPuntuacion;
+                    Puntuacion.text = "Puntos: " + playerModel.pPuntuacion;
                 else
-                    Puntuacion.text = "Score: " + PlayerPrefs.GetInt("Puntuacion");
+                    Puntuacion.text = "Puntos: " + PlayerPrefs.GetInt("Puntuacion");
                 Destroy(this.gameObject);
             }
         }
@@ -200,13 +184,12 @@ public class Player : MonoBehaviour
             enemigo.PoolEnemigos.Release(enemigo);
             playerModel.pVida -= 20;
             imageVida.rectTransform.sizeDelta = new Vector2(playerModel.pVida, imageVida.rectTransform.sizeDelta.y);
-            //Destroy(elOtro.gameObject);
             if (playerModel.pVida <= 0)
             {
                 if (playerModel.pPuntuacion > PlayerPrefs.GetInt("Puntuacion"))
-                    Puntuacion.text = "Score: " + playerModel.pPuntuacion;
+                    Puntuacion.text = "Puntos: " + playerModel.pPuntuacion;
                 else
-                    Puntuacion.text = "Score: " + PlayerPrefs.GetInt("Puntuacion");
+                    Puntuacion.text = "Puntos: " + PlayerPrefs.GetInt("Puntuacion");
                 Destroy(this.gameObject);
             }
         }

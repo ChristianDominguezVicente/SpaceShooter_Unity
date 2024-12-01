@@ -119,6 +119,4 @@ public class MenuOpciones : MonoBehaviour
     {
         PlayerPrefs.SetInt("Menu", 1);
     }
-
-
 }

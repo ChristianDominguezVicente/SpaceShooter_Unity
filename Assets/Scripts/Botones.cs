@@ -61,7 +61,5 @@ public class Botones : MonoBehaviour
             PlayerPrefs.SetInt("Disparo", disparo);
             PlayerPrefs.Save();
         }
-
     }
-
 }

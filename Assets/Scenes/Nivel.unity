@@ -1727,7 +1727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0'
+  m_text: 'Puntos: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 314aee455d62abe4aa447c44cd19bae0, type: 2}
   m_sharedMaterial: {fileID: 8115553629185096790, guid: 314aee455d62abe4aa447c44cd19bae0, type: 2}
@@ -3474,6 +3474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemigoPrefab: {fileID: 2325805471668595311, guid: 600895255881fd845871d3f1651331ef, type: 3}
+  enemigoDiagonalPrefab: {fileID: 2406491459140658243, guid: bb17153134cad4243b19150618ad2b1c, type: 3}
   disparoPrefab: {fileID: -1354075655077770813, guid: 4ee2e6c0458e1674387a0ad2d63fbd9f, type: 3}
   textoOleadas: {fileID: 324889113}
 --- !u!1 &966271564
@@ -7108,7 +7109,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0'
+  m_text: 'Puntos: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 314aee455d62abe4aa447c44cd19bae0, type: 2}
   m_sharedMaterial: {fileID: 8115553629185096790, guid: 314aee455d62abe4aa447c44cd19bae0, type: 2}
@@ -7284,10 +7285,6 @@ MonoBehaviour:
     - m_Text: Media
       m_Image: {fileID: 0}
     - m_Text: Alta
-      m_Image: {fileID: 0}
-    - m_Text: Muy Alta
-      m_Image: {fileID: 0}
-    - m_Text: Ultra
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

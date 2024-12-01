@@ -290,7 +290,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f3a11877751e00d45a51f85f4a287b02, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2bf5f20f2069e7d41aacef1d55df3124, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2917,10 +2917,6 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Alta
       m_Image: {fileID: 0}
-    - m_Text: Muy Alta
-      m_Image: {fileID: 0}
-    - m_Text: Ultra
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4099,7 +4095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f3a11877751e00d45a51f85f4a287b02, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ebf37f32d8f34c44925e5d47bf079bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6675,7 +6671,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f3a11877751e00d45a51f85f4a287b02, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 496c1943fc83fb54ca5fc7ba9af25d85, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8260,7 +8256,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: '
+  m_text: 'Puntos: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 314aee455d62abe4aa447c44cd19bae0, type: 2}
   m_sharedMaterial: {fileID: 8115553629185096790, guid: 314aee455d62abe4aa447c44cd19bae0, type: 2}

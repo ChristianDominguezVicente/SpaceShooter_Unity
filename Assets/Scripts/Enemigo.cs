@@ -7,7 +7,6 @@ using UnityEngine.Pool;
 public class Enemigo : MonoBehaviour
 {
     [SerializeField] private float velocidad;
-    //[SerializeField] private Disparo disparoPrefab;
     [SerializeField] private Transform spawnPoint;
 
     private ObjectPool<Enemigo> poolenemigos;
@@ -42,37 +41,6 @@ public class Enemigo : MonoBehaviour
         }
     }
 
-    /*
-    private ObjectPool<Disparo> pool;
-    
-    private void Awake()
-    {
-        pool = new ObjectPool<Disparo>(CrearDisparo, null, ReleaseDisparo, DestroyDisparo);
-    }
-
-    private Disparo CrearDisparo()
-    {
-        Disparo disparoCopia = Instantiate(disparoPrefab, transform.position, Quaternion.identity);
-        disparoCopia.MyPool = pool;
-        return disparoCopia;
-    }
-
-    private void ReleaseDisparo(Disparo disparo)
-    {
-        disparo.gameObject.SetActive(false);
-    }
-    private void DestroyDisparo(Disparo disparo)
-    {
-        Destroy(disparo.gameObject);
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(SpawnearDisparos());
-    }
-    */
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(new Vector3(-1, 0, 0) * velocidad * Time.deltaTime);
@@ -129,7 +97,7 @@ public class Enemigo : MonoBehaviour
             player = GameObject.Find("Player").GetComponent<Player>();
             player.getPlayer().pPuntuacion += 5;
             TMP_Text textPuntuacion = (TMP_Text)GameObject.Find("Puntos").GetComponent<TMP_Text>();
-            textPuntuacion.text = "Score: " + player.getPlayer().pPuntuacion;
+            textPuntuacion.text = "Puntos: " + player.getPlayer().pPuntuacion;
         }
         else if (elOtro.gameObject.CompareTag("Bound"))
         {
