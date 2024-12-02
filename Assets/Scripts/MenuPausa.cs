@@ -12,7 +12,7 @@ public class MenuPausa : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && Fin.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.E) && Fin.activeSelf == false)
         {
             if (juegoPausado)
                 Reanudar();
