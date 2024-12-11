@@ -8,6 +8,9 @@ TagManager:
   - DisparoPlayer
   - DisparoEnemigo
   - Bound
+  - Life
+  - EnemigoD
+  - Speed
   layers:
   - Default
   - TransparentFX

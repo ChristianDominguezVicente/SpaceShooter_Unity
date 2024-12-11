@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     protected PlayerModel playerModel;
     private AudioSource audioS;
+    private float widthVida;
 
     public PlayerModel getPlayer()
     {
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
     {
         audioS = GetComponent<AudioSource>();
         playerModel = gameObject.AddComponent<PlayerModel>();
+        widthVida = imageVida.rectTransform.sizeDelta.x;
     }
 
     // Update is called once per frame
@@ -168,7 +170,7 @@ public class Player : MonoBehaviour
             Disparo disparoEnemigo = elOtro.GetComponent<Disparo>();
             disparoEnemigo.MyPool.Release(disparoEnemigo);
             playerModel.pVida -= 20;
-            imageVida.rectTransform.sizeDelta = new Vector2(playerModel.pVida, imageVida.rectTransform.sizeDelta.y);
+            imageVida.rectTransform.sizeDelta = new Vector2((playerModel.pVida / 100f) * widthVida, imageVida.rectTransform.sizeDelta.y);
             if (playerModel.pVida <= 0)
             {
                 if (playerModel.pPuntuacion > PlayerPrefs.GetInt("Puntuacion"))
@@ -183,7 +185,7 @@ public class Player : MonoBehaviour
             Enemigo enemigo = elOtro.GetComponent<Enemigo>();
             enemigo.PoolEnemigos.Release(enemigo);
             playerModel.pVida -= 20;
-            imageVida.rectTransform.sizeDelta = new Vector2(playerModel.pVida, imageVida.rectTransform.sizeDelta.y);
+            imageVida.rectTransform.sizeDelta = new Vector2((playerModel.pVida / 100f) * widthVida, imageVida.rectTransform.sizeDelta.y);
             if (playerModel.pVida <= 0)
             {
                 if (playerModel.pPuntuacion > PlayerPrefs.GetInt("Puntuacion"))
@@ -193,5 +195,45 @@ public class Player : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+        else if (elOtro.gameObject.CompareTag("EnemigoD"))
+        {
+            EnemigoD enemigod = elOtro.GetComponent<EnemigoD>();
+            enemigod.PoolEnemigosD.Release(enemigod);
+            playerModel.pVida -= 20;
+            imageVida.rectTransform.sizeDelta = new Vector2((playerModel.pVida / 100f) * widthVida, imageVida.rectTransform.sizeDelta.y);
+            if (playerModel.pVida <= 0)
+            {
+                if (playerModel.pPuntuacion > PlayerPrefs.GetInt("Puntuacion"))
+                    Puntuacion.text = "Puntos: " + playerModel.pPuntuacion;
+                else
+                    Puntuacion.text = "Puntos: " + PlayerPrefs.GetInt("Puntuacion");
+                Destroy(this.gameObject);
+            }
+        }
+        else if (elOtro.gameObject.CompareTag("Life"))
+        {
+            Life life = elOtro.GetComponent<Life>();
+            life.PoolLife.Release(life);
+            if (playerModel.pVida < 100)
+            {
+                playerModel.pVida += 20;
+            }
+            imageVida.rectTransform.sizeDelta = new Vector2((playerModel.pVida / 100f) * widthVida, imageVida.rectTransform.sizeDelta.y);
+        }
+        else if (elOtro.gameObject.CompareTag("Speed"))
+        {
+            Speed speed = elOtro.GetComponent<Speed>();
+            speed.PoolSpeed.Release(speed);
+
+            StartCoroutine(SpeedUp(3f, 1.5f));
+        }
+    }
+
+    private IEnumerator SpeedUp(float time, float speedUp)
+    {
+        float speedOriginal = playerModel.pVelocidad;
+        playerModel.pVelocidad *= speedUp;
+        yield return new WaitForSeconds(time);
+        playerModel.pVelocidad = speedOriginal;
     }
 }
